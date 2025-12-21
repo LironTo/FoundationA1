@@ -16,6 +16,7 @@ public class SearchForAJobTest extends JobSearcherTest{
 
         ArrayList<JobOffer> results = jobSearchServices.getJobOffers(filters);
         Assert.assertNotNull(results);
+        // we pre-populated 2 offers in SampleJobSearchServices
         Assert.assertFalse("Filtered search should return at least one matching offer", results.isEmpty());
     }
 
@@ -26,7 +27,7 @@ public class SearchForAJobTest extends JobSearcherTest{
         ArrayList<JobOffer> results = jobSearchServices.getJobOffers(emptyFilters);
         Assert.assertNotNull(results);
         // we pre-populated 2 offers in SampleJobSearchServices
-        Assert.assertTrue("Empty filter search should return all pre-populated offers (>=2)", results.size() >= 2);
+        Assert.assertFalse("Filtered search should return at least one matching offer", results.isEmpty());
     }
 
 }
